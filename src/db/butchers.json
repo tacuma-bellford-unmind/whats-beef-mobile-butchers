@@ -1,0 +1,40 @@
+{
+  "butchers": [
+    {
+      "id": 1,
+      "name":"Super",
+      "imageUrl": "shoulder-british-lamb-269-kg-260nw-181022303.webp",
+      "meats": [
+        {
+          "name":"lamb shoulder",
+          "quantity":5,
+          "price": 10
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name":"Meat Spot Butchers",
+      "imageUrl": "shoulder-british-lamb-269-kg-260nw-181022303.webp",
+      "meats":[
+        {
+          "name":"beef ribs",
+          "quantity": 20,
+          "price": 6
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name":"Benny the Butchers",
+      "imageUrl": "shoulder-british-lamb-269-kg-260nw-181022303.webp",
+      "meats":[
+        {
+          "name":"Chicken Wings",
+          "quantity":30,
+          "price": 3
+        }
+      ]
+    }
+  ]
+}
