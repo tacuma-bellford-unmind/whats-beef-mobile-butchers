@@ -1,6 +1,5 @@
 import "./App.css";
-import { Butchers } from "./Butchers.jsx";
-import { useState } from "react";
+import { ButchersList } from "./ButchersList.jsx";
 
 function Header() {
   return (
@@ -16,17 +15,10 @@ function Header() {
  * @type {{meats: array}}
  */
 function App() {
-  const [count, setCount] = useState(0);
-
-  const handleClick = () => {
-    setCount(count + 1);
-  };
-
   return (
     <div className="App">
       <Header />
-      <Butchers count={count} onClick={handleClick} />
-      <Butchers count={count} onClick={handleClick} />
+      <ButchersList />
     </div>
   );
 }
