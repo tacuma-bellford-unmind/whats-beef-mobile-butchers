@@ -11,7 +11,6 @@ export const ButchersList = () => {
   const butchers = useLoaderData();
 
   const listOfButchers = butchers.map(({ id, name, meats }) => {
-    console.log("MEATS", meats);
     return (
       <div className="row">
         <Butcher
