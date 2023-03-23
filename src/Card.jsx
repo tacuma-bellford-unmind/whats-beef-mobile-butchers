@@ -3,10 +3,13 @@ import { useState } from "react";
 export const Card = ({ children }) => {
   const [quantity, setQuantity] = useState(0);
   const { name, price, inStock, image } = children.props;
+  const [newStock, setNewStock] = useState(inStock);
   console.log(price * quantity);
   const handleClick = () => {
+    setNewStock(inStock - quantity);
     setQuantity(quantity + 1);
   };
+
   const cardSize = "18rem";
 
   return (
@@ -19,6 +22,8 @@ export const Card = ({ children }) => {
       <button className="btn btn-primary" onClick={handleClick}>
         Add to basket {quantity}
       </button>
+      <p>total: £{price * quantity}</p>
+      <p>In stock: {newStock}</p>
     </div>
   );
 };
