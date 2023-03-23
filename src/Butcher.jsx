@@ -1,5 +1,6 @@
 import { Card } from "./Card.jsx";
 import { Meat } from "./Meat.jsx";
+import { Link } from "react-router-dom";
 
 export const Butcher = ({ butcherName, selectionOfMeats }) => {
   const getSelectionMeats = ({ name, inStock, price, imageUrl }) => (
@@ -21,7 +22,7 @@ export const Butcher = ({ butcherName, selectionOfMeats }) => {
   return (
     <div>
       <h1>
-        <a href="#">{butcherName}</a>
+        <Link to={`butchers/1`}>{butcherName}</Link>
       </h1>
       {meatSelection}
     </div>
