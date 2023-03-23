@@ -1,8 +1,17 @@
 import { Card } from "./Card.jsx";
 import { Meat } from "./Meat.jsx";
-import { Link } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
+import { getButchers } from "./db/getButchers.js";
 
-export const Butcher = ({ butcherName, selectionOfMeats }) => {
+export function loader() {
+  const butchers = getButchers();
+  const meats = butchers.map((butcher) => butcher.meats);
+  return meats;
+}
+
+export const Butcher = ({ butcherId, butcherName }) => {
+  const meats = useLoaderData();
+
   const getSelectionMeats = ({ name, inStock, price, imageUrl }) => (
     <div className="col-lg-12">
       <Card>
@@ -17,12 +26,12 @@ export const Butcher = ({ butcherName, selectionOfMeats }) => {
     </div>
   );
 
-  const meatSelection = selectionOfMeats.map(getSelectionMeats);
+  const meatSelection = meats.map(getSelectionMeats);
 
   return (
     <div>
       <h1>
-        <Link to={`butchers/1`}>{butcherName}</Link>
+        <Link to={`butchers/${butcherId}`}>{butcherName}</Link>
       </h1>
       {meatSelection}
     </div>

@@ -1,13 +1,25 @@
-import * as data from "./db/butchers.json";
 import { Butcher } from "./Butcher.jsx";
+import { getButchers } from "./db/getButchers.js";
+import { useLoaderData } from "react-router-dom";
+
+export function loader() {
+  const butchers = getButchers();
+  return butchers;
+}
 
 export const ButchersList = () => {
-  const { butchers } = data;
+  const butchers = useLoaderData();
 
   const listOfButchers = butchers.map(({ id, name, meats }) => {
+    console.log("MEATS", meats);
     return (
       <div className="row">
-        <Butcher key={id} butcherName={name} selectionOfMeats={meats} />
+        <Butcher
+          key={id}
+          butcherId={id}
+          butcherName={name}
+          selectionOfMeats={meats}
+        />
       </div>
     );
   });
